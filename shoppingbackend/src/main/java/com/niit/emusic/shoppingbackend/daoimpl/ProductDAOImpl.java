@@ -13,7 +13,7 @@ import com.niit.emusic.shoppingbackend.dao.ProductDAO;
 import com.niit.emusic.shoppingbackend.model.Product;
 
 @Repository("ProductDAO")
-@Transactional
+@Transactional 
 public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
