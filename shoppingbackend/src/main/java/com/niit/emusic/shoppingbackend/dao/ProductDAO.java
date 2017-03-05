@@ -7,7 +7,7 @@ import com.niit.emusic.shoppingbackend.model.Product;
 public interface ProductDAO 
 {
 
- Product get(int id);
+    Product get(int id);
 	List <Product> list();
 	boolean add(Product product);
 	boolean update(Product product);

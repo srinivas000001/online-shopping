@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -52,37 +52,35 @@ public class HibernateConfig
 		return dataSource;
 	}
     
-   
     
     private Properties getHibernateProperties() 
     {
     	Properties properties = new Properties();
     
-    	properties.put("hibernate.show_sql", "true");
-    	properties.put("hibernate.format_sql", "true");
-    	properties.put("hibernate.hbm2ddl", "update");
     	properties.put("hibernate.dialect",DATABASE_DIALECT);
+        properties.put("hibernate.show_sql", "true");
+    	properties.put("hibernate.format_sql", "true");
+    //	properties.put("hbm2ddl.auto", "update");
     	return properties;
     }
     
-   // @Autowired
+   //@Autowired
     @Bean
     public SessionFactory getSessionFactory(DataSource dataSource) 
     {
     	LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
     
     	sessionBuilder.addProperties(getHibernateProperties());
-    	sessionBuilder.addAnnotatedClass(Product.class);
+    	sessionBuilder.scanPackages("com.niit.emusic.shoppingbackend.model");
       	return sessionBuilder.buildSessionFactory();
     }
     
 	//@Autowired
-	//@Bean(name = "transactionManager")
-    @Bean
+	@Bean(name = "transactionManager")
+    //@Bean
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) 
 	{
-		HibernateTransactionManager transactionManager = new HibernateTransactionManager(
-				sessionFactory);
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 
 		return transactionManager;
 	}

@@ -22,31 +22,34 @@ public static void init()
 	context=new AnnotationConfigApplicationContext();
 	context.scan("com.niit.emusic.shoppingbackend");
 	context.refresh();
-	//productDAO=(ProductDAO)context.getBean(productDAO);
+	productDAO=(ProductDAO)context.getBean("ProductDAO");
 
 	
 }
 
+/*
 @Test
 public void testAddProduct()
 {
 	product =new Product();
 	
 	
-	product.setName("Telivision");
+	product.setName("Piono");
 	product.setDescription("This is Some description for testing");
-	product.setImageURL("8.jpg");
-	
+	product.setImageURL("1.jpg");
 	assertEquals("Successfully added  a Product inside the table",true,productDAO.add(product));
 	
 }
 
-@Test
+
+  
+  @Test
+ 
 public void testGetProduct()
 {
 
-	product=productDAO.get(3);
-	assertEquals("Successfully Fetch  single Product from the table","telivision",product.getName());
+	product=productDAO.get(1);
+	assertEquals("Successfully Fetch  single Product from the table","Telivision",product.getName());
 
 }
 
@@ -56,7 +59,7 @@ public void testGetProduct()
 public void testUpdateProduct()
 {
 
-	product=productDAO.get(3);
+	product=productDAO.get(1);
 	product.setName("TV");
 	
 	assertEquals("Successfully Updated  single Product from the table",true,productDAO.update(product));
@@ -68,7 +71,7 @@ public void testUpdateProduct()
 public void testDeleteProduct()
 {
 
-	product=productDAO.get(3);
+	product=productDAO.get(2);
 	product.setName("TV");
 	
 	assertEquals("Successfully Deleted  single Product from the table",true,productDAO.delete(product));
@@ -81,19 +84,18 @@ public void testDeleteProduct()
 public void testListProduct()
 {
 
-	product=productDAO.get(3);
+	product=productDAO.get(1);
 	product.setName("TV");
 	
-	assertEquals("Successfully Deleted  single Product from the table",3,productDAO.list().size());
+	assertEquals("Successfully Deleted  single Product from the table",1,productDAO.list().size());
 
 }
 
 
-
+*/
 @Test
 public void testCRUDProduct()
 {
-
 	
 
 product=new Product();
@@ -107,24 +109,22 @@ product=new Product();
 	
 	product=new Product();
 	
-	product.setName("LapTop");
+	product.setName("Test");
 	product.setDescription("This is Some description for Laptop testing");
-	product.setImageURL("8.jpg");
+	product.setImageURL("3.jpg");
 	
 	assertEquals("Successfully added  a Product inside the table",true,productDAO.add(product));
 	
 	assertEquals("Successfully Updated  single Product from the table",true,productDAO.update(product));
 
 	
-	
-	
 	assertEquals("Successfully Deleted  single Product from the table",true,productDAO.delete(product));
-
 	
 
 	assertEquals("Successfully Deleted  single Product from the table",1,productDAO.list().size());
 
 }
+
 
 
 }
