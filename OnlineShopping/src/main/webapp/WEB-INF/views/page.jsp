@@ -6,7 +6,7 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 
-<
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 
 <!DOCTYPE html>
