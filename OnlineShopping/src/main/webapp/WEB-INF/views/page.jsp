@@ -5,9 +5,18 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+
+
 
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
+
+
+		<%@include file="./template/header.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,11 +48,7 @@
 <body>
 
 	<div class="wrapper">
-		<!--  Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
 
-
-		<!--  Page Content -->
 
 		<div class="content">
 			<!-- Page Content -->
@@ -57,6 +62,16 @@
 			<c:if test="${userClickAbout ==true}">
 				<%@include file="about.jsp"%>
 			</c:if>
+			
+			<c:if test="${userClickAdminProduct ==true}">
+				<%@include file="product.jsp"%>
+			</c:if>
+
+
+			<c:if test="${userClickAdminCategory ==true}">
+				<%@include file="category.jsp"%>
+			</c:if>
+
 
 			<!--  User Click Contacts  -->
 			<c:if test="${userClickContact ==true}">
@@ -66,9 +81,8 @@
 
 		</div>
 
-		<!--  Footer here -->
-		<%@include file="./shared/footer.jsp"%>
 
+		 
 		<!-- jQuery -->
 
 		<script src="${js}/jquery.js"></script>
@@ -81,6 +95,9 @@
 		<script src="${js}/myapp.js"></script>
 
 	</div>
+	
+		<%@include file="./template/footer.jsp"%>
+	
 </body>
 
 </html>

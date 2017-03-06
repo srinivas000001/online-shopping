@@ -16,7 +16,6 @@ import com.niit.emusic.shoppingbackend.model.Category;
 
 @Repository("CategoryDAO")
 @Transactional 
-
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
@@ -36,7 +35,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 		try {
 
 			sessionFactory.getCurrentSession().persist(category);
-
 			return true;
 		}
 
@@ -50,12 +48,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Category> list() {
 
-		String selectActiveCategory="From Category where active=:active";
+		String selectActiveCategory="From Category"; //where active=:active";
 		
 
 Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 
-query.setParameter("active", true);
+//query.setParameter("active", true);
 return query.getResultList();
 
 	}
@@ -68,7 +66,6 @@ return query.getResultList();
 		try {
 
 			sessionFactory.getCurrentSession().update(category);
-
 			return true;
 		}
 
@@ -82,7 +79,8 @@ return query.getResultList();
 	@Override
 	public boolean delete(Category category) {
 		
-		category.setActive(false);
+		
+//		category.setIs_Active(false);
 		try {
 
 			sessionFactory.getCurrentSession().delete(category);

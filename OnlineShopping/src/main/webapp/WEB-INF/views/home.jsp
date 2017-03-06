@@ -14,12 +14,14 @@
         <div class="row">
 
             <div class="col-md-3">
-            <%@include file="./shared/sidebar.jsp" %>
-                <p class="lead">Emusic</p>
+            <%@include file="./shared/sidebar.jsp"%>
+          
+
+                <p class="lead">Online Shopping</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="#" class="list-group-item">Electronics</a>
+                    <a href="#" class="list-group-item">Furnitures</a>
+                    <a href="#" class="list-group-item">Computers & Accessories</a>
                 </div>
             </div>
 
@@ -36,13 +38,14 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="${images}/img04.jpg" alt="">
+                                    <img class="slide-image" src="${images}/corousel/gamingconsole.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="${images}/img05.jpg" alt="">
+                                         <img class="slide-image" src="${images}/corousel/DSLR.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="${images}/img06.jpg" alt="">
+                                  <img class="slide-image" src="${images}/corousel/nexus.jpg" alt="">
+
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

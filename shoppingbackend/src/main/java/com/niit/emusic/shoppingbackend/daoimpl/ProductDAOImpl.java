@@ -33,7 +33,6 @@ public class ProductDAOImpl implements ProductDAO {
 		try {
 
 			sessionFactory.getCurrentSession().persist(product);
-
 			return true;
 		}
 
@@ -47,12 +46,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<Product> list() {
 
-		String selectActiveCategory="From Product where active=:active";
+		String selectActiveCategory="From Product"; //where active=:active";
 		
 
 Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 
-query.setParameter("active", true);
+//query.setParameter("active", true);
 return query.getResultList();
 
 	}
@@ -65,7 +64,6 @@ return query.getResultList();
 		try {
 
 			sessionFactory.getCurrentSession().update(product);
-
 			return true;
 		}
 
@@ -79,7 +77,8 @@ return query.getResultList();
 	@Override
 	public boolean delete(Product product) {
 		
-		product.setActive(false);
+		
+//		product.setIs_Active(false);
 		try {
 
 			sessionFactory.getCurrentSession().delete(product);

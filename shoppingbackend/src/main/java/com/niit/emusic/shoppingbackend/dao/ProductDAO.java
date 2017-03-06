@@ -14,3 +14,4 @@ public interface ProductDAO
 	boolean delete(Product product);
 
 }
+ 

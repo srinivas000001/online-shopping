@@ -2,6 +2,7 @@ create table Product
 (id IDENTITY,
 name varchar(50),
 description varchar(100),
+price int,
 image_url varchar(50),
 is_active BOOLEAN,
 

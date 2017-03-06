@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.emusic.shoppingbackend.dao.CategoryDAO;
 import com.niit.emusic.shoppingbackend.dao.ProductDAO;
 
 @Controller
@@ -13,9 +14,36 @@ import com.niit.emusic.shoppingbackend.dao.ProductDAO;
 public class PageController 
 {
 	@Autowired
-	
 	private ProductDAO productDAO;
 
+
+	@Autowired
+	private CategoryDAO categoryDAO;
+
+	@RequestMapping(value="/login")
+	public ModelAndView login()
+	{
+		
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title","Login");
+		
+		mv.addObject("userClickLogin",true);
+		
+		return mv;
+	}
+
+	@RequestMapping(value="/register")
+	public ModelAndView register()
+	{
+		
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("title","Register");
+		
+		mv.addObject("userClickRegister",true);
+		
+		return mv;
+	}
+	
 	@RequestMapping(value={"/","/home","/index"})
 	public ModelAndView index()
 	{
@@ -24,8 +52,6 @@ public class PageController
 		mv.addObject("title","Home");
 		
 		mv.addObject("userClickHome",true);
-		
-		
 		
 		return mv;
 	}
